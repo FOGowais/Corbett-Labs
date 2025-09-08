@@ -109,7 +109,7 @@ const ProductPortfolio = ({ onContactClick }: { onContactClick: () => void }) =>
           {filteredProducts.map((product, index) => (
             <div 
               key={product.name}
-              className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+              className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 cursor-pointer group flex flex-col h-[320px]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center justify-between mb-4">
@@ -130,7 +130,7 @@ const ProductPortfolio = ({ onContactClick }: { onContactClick: () => void }) =>
                 ))}
               </div>
               
-              <button onClick={onContactClick} className="w-full bg-white/50 text-cool-grey py-2 rounded-lg text-sm font-medium group-hover:bg-accent-blue group-hover:text-white transition-all duration-300">
+              <button onClick={onContactClick} className="w-full bg-white/50 text-cool-grey py-2 rounded-lg text-sm font-medium group-hover:bg-accent-blue group-hover:text-white transition-all duration-300 mt-auto">
                 Request Sample
               </button>
             </div>

@@ -41,7 +41,7 @@ const EnhancedPreloader = ({ onComplete }: { onComplete: () => void }) => {
     >
       <div className="flex flex-col items-center justify-center text-center w-full">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-deep-navy mb-2">Corbett Industries</h1>
+          <h1 className="text-4xl font-bold text-deep-navy mb-2">Corbett Labs</h1>
           <p className="text-accent-blue">Premium OEM Manufacturing</p>
         </div>
         

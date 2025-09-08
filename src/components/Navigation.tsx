@@ -31,7 +31,7 @@ const Navigation = ({
       <div className="container-max flex items-center justify-between py-4 px-6">
         <div className="flex items-center space-x-2">
           <img src="/lovable-uploads/logo.png" srcSet="/lovable-uploads/logo.webp 1x" alt="Logo" className="w-8 h-8 rounded-lg object-contain" />
-          <span className="font-bold text-xl text-deep-navy">Corbett Industries</span>
+          <span className="font-bold text-xl text-deep-navy">Corbett Labs</span>
         </div>
 
         {/* Desktop Menu */}

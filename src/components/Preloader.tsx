@@ -22,7 +22,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     <div className="fixed inset-0 bg-deep-navy flex items-center justify-center z-50">
       <div className="text-center">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Corbett Industries</h1>
+          <h1 className="text-4xl font-bold text-white mb-2">Corbett Labs</h1>
           <p className="text-sky-glow">Premium OEM Manufacturing</p>
         </div>
         
