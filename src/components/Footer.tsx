@@ -11,29 +11,19 @@ const Footer = ({ onContactClick }: { onContactClick: () => void }) => {
   return (
     <footer className="bg-deep-navy text-white relative overflow-hidden">
       
-      <div className="container-max section-padding relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="container-max py-12 px-6 md:px-12 lg:px-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
               <img src="/lovable-uploads/logo.png" srcSet="/lovable-uploads/logo.webp 1x" alt="Logo" className="w-10 h-10 rounded-lg object-contain" />
-              <span className="font-bold text-2xl">Corbett Industries</span>
+              <span className="font-bold text-2xl">Corbett Labs</span>
             </div>
             <p className="text-white/80 mb-6 max-w-md">
               Leading OEM manufacturer of premium nicotine pouches with over 15 years of experience 
               in delivering innovative solutions for global brands.
             </p>
-            <div className="flex space-x-4">
-              <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-blue transition-colors cursor-pointer">
-                <span className="text-xs">Li</span>
-              </div>
-              <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-blue transition-colors cursor-pointer">
-                <span className="text-xs">Tw</span>
-              </div>
-              <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-blue transition-colors cursor-pointer">
-                <span className="text-xs">Fb</span>
-              </div>
-            </div>
+            {/* Social media buttons removed as requested */}
           </div>
 
           {/* Quick Links */}
@@ -84,16 +74,12 @@ const Footer = ({ onContactClick }: { onContactClick: () => void }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-8">
+        <div className="border-t border-white/20 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm">
-              © 2024 Corbett Industries. All rights reserved. Leading OEM Innovation Since 2009.
+              © 2024 Corbett Labs. All rights reserved. Leading OEM Innovation Since 2009.
             </div>
-            <div className="flex space-x-6 text-sm text-white/60">
-              <a href="#" className="hover:text-sky-glow transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-sky-glow transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-sky-glow transition-colors">Quality Standards</a>
-            </div>
+            {/* Footer links removed as requested */}
           </div>
         </div>
       </div>
