@@ -24,7 +24,7 @@ const Hero = ({ onContactClick }: { onContactClick: () => void }) => {
               <span className="text-accent-blue">Made for Your Brand</span>
             </h1>
             <p className="text-xl text-cool-grey mb-8 max-w-2xl mx-auto">
-              End-to-end OEM • 50M pouches/month • 99.8% Quality Control
+              End-to-end OEM • 50M pouches/month • 99% Quality Control
             </p>
           </div>
 

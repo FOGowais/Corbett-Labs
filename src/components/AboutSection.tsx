@@ -4,7 +4,7 @@ const stats = [
   { number: 15, suffix: '+', label: 'Years in Manufacturing', description: 'Industry expertise since 2009' },
   { number: 5, suffix: 'M+', label: 'Pouches Monthly', description: 'High-volume production capacity' },
   { number: 25, suffix: '+', label: 'Countries Served', description: 'Global distribution network' },
-  { number: 99.8, suffix: '%', label: 'Quality Rate', description: 'Consistent manufacturing excellence' }
+  { number: 99, suffix: '%', label: 'Quality Rate', description: 'Consistent manufacturing excellence' }
 ];
 
 const timeline = [
@@ -43,8 +43,8 @@ const CounterAnimation = ({ targetNumber, suffix, label, description }: { target
     return () => clearInterval(timer);
   }, [targetNumber]);
 
-  // Show decimal for 99.8, integer for others
-  const displayValue = (label === 'Quality Rate') ? count.toFixed(1) : Math.floor(count);
+  // Display integer values
+  const displayValue = Math.floor(count);
 
   return (
     <div className="text-center glass-card p-8 animate-counter-up">
