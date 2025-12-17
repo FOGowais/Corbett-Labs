@@ -101,7 +101,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
         throw new Error('Bad response');
       }
     } catch (err) {
-      setFormMessage({ type: 'error', text: 'We couldn’t send your request. Please try again later or email sales@corbettlabs.in.' });
+      setFormMessage({ type: 'error', text: 'We couldn’t send your request. Please try again later or email pouchex@corbettlabs.in.' });
     } finally {
       setIsSubmitting(false);
     }
@@ -240,7 +240,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
                 </div>
                 <div>
                   <h4 className="font-medium text-deep-navy">Sales Team</h4>
-                  <p className="text-cool-grey">sales@corbettlabs.in</p>
+                  <p className="text-cool-grey">pouchex@corbettlabs.in</p>
                 </div>
                 
               </div>

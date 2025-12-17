@@ -62,7 +62,7 @@ const Footer = ({ onContactClick }: { onContactClick: () => void }) => {
             <h3 className="font-bold text-lg mb-4">Get in Touch</h3>
             <div className="space-y-3 text-white/80">
               <p>Ramnagar<br />Uttarakhand, India</p>
-              <p>sales@corbettlabs.in</p>
+              <p>pouchex@corbettlabs.in</p>
               <button 
                 onClick={onContactClick}
                 className="btn-primary mt-4"
