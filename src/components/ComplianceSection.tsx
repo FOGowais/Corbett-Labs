@@ -16,13 +16,13 @@ const certifications = [
     status: 'Active',
     expires: 'Jun 2026'
   },
-  {
-    title: 'FDA Facility Registration',
-    authority: 'US Food and Drug Administration',
-    description: 'Registered manufacturing facility for tobacco products with FDA compliance protocols.',
-    status: 'Active',
-    expires: 'Annual'
-  },
+  // {
+  //   title: 'FDA Facility Registration',
+  //   authority: 'US Food and Drug Administration',
+  //   description: 'Registered manufacturing facility for tobacco products with FDA compliance protocols.',
+  //   status: 'Active',
+  //   expires: 'Annual'
+  // },
   {
     title: 'TPD Compliance',
     authority: 'European Union',
@@ -36,7 +36,7 @@ const additionalStandards = [
   { name: 'HACCP', description: 'Hazard Analysis Critical Control Points' },
   { name: 'Child-resistant packaging compliance', description: 'Ensures safety features to prevent child access' },
   { name: 'ISO 22000 / HACCP', description: 'Food safety management systems standard' },
-  { name: 'TPD', description: 'Occupational Safety and Health Standards' }
+  // { name: 'TPD', description: 'Occupational Safety and Health Standards' }
 ];
 
 const ComplianceSection = ({ onContactClick }: { onContactClick: () => void }) => {

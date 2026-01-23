@@ -3,7 +3,7 @@ import { useSimpleAnimations } from '../hooks/useSimpleAnimations';
 const capabilities = [{
   title: 'Custom Formulation',
   description: 'Proprietary nicotine blends, flavor profiles, and strength variations tailored to your market requirements.',
-  features: ['Nicotine salts & extracts', 'Natural & synthetic flavors', 'Strength: 2-20mg/pouch', 'pH optimization'],
+  features: ['Nicotine & Nicotine salts', 'All flavor profiles', 'Customised strength', 'Sensory optimization'],
   icon: '🧪'
 }, {
   title: 'Private Labeling',
@@ -18,7 +18,7 @@ const capabilities = [{
 }, {
   title: 'Scalable Production',
   description: 'Flexible manufacturing capacity from prototype runs to high-volume commercial production.',
-  features: ['Flexible low MOQ', '5M monthly capacity', '24/7 production', 'JIT delivery'],
+  features: ['Flexible low MOQ', '2M monthly capacity', '24/7 production', 'JIT delivery'],
   icon: '📈'
 }, {
   title: 'Regulatory Support',

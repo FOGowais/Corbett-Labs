@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const stats = [
-  { number: 15, suffix: '+', label: 'Years in Manufacturing', description: 'Industry expertise since 2009' },
-  { number: 5, suffix: 'M+', label: 'Pouches Monthly', description: 'High-volume production capacity' },
+  { number: 2, suffix: 'M+', label: 'Cans Monthly', description: 'High-volume production capacity' },
   { number: 25, suffix: '+', label: 'Countries Served', description: 'Global distribution network' },
-  { number: 99, suffix: '%', label: 'Quality Rate', description: 'Consistent manufacturing excellence' }
-];
-
-const timeline = [
-  { year: '2009', event: 'Founded as nicotine research lab' },
-  { year: '2012', event: 'First commercial production facility' },
-  { year: '2016', event: 'International expansion & certifications' },
-  { year: '2019', event: 'Advanced automation & clean rooms' },
-  { year: '2022', event: 'Expansion to 5M cans/month' },
-  { year: '2024', event: 'AI-driven quality control systems' }
+  { number: 100, suffix: '%', label: 'Quality Rate', description: 'Consistent manufacturing excellence' }
 ];
 
 const values = [
@@ -47,12 +37,12 @@ const CounterAnimation = ({ targetNumber, suffix, label, description }: { target
   const displayValue = Math.floor(count);
 
   return (
-    <div className="text-center glass-card p-8 animate-counter-up">
-      <div className="text-4xl md:text-5xl font-bold text-accent-blue mb-2">
+    <div className="text-center glass-card p-8 md:p-10 lg:p-12 animate-counter-up">
+      <div className="text-5xl md:text-6xl lg:text-6xl font-bold text-accent-blue mb-3 md:mb-4">
         {displayValue}{suffix}
       </div>
-      <h3 className="font-bold text-deep-navy mb-2">{label}</h3>
-      <p className="text-sm text-cool-grey">{description}</p>
+      <h3 className="text-lg md:text-xl font-bold text-deep-navy mb-2 md:mb-3">{label}</h3>
+      <p className="text-sm md:text-base text-cool-grey">{description}</p>
     </div>
   );
 };
@@ -63,7 +53,7 @@ const AboutSection = () => {
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-6">
-            Corbett Labs - Leading OEM Innovation Since 2009
+            Corbett Labs - Leading OEM Innovations Globally
           </h2>
           <p className="text-xl text-cool-grey max-w-4xl mx-auto">
             Built on a foundation of scientific excellence and manufacturing precision, we've grown 
@@ -72,7 +62,7 @@ const AboutSection = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="flex flex-wrap justify-center gap-12 md:gap-20 lg:gap-24 mb-20">
           {stats.map((stat) => (
             <CounterAnimation
               key={stat.label}
@@ -84,7 +74,7 @@ const AboutSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="max-w-4xl mx-auto">
           {/* Our Story */}
           <div>
             <h3 className="text-2xl font-bold text-deep-navy mb-6">Our Story</h3>
@@ -117,25 +107,6 @@ const AboutSection = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-
-          {/* Company Timeline */}
-          <div>
-            <h3 className="text-2xl font-bold text-deep-navy mb-6">Company Timeline</h3>
-            <div className="space-y-6">
-              {timeline.map((item, index) => (
-                <div key={item.year} className="flex items-center">
-                  <div className="flex items-center mr-6">
-                    <div className="w-4 h-4 bg-accent-blue rounded-full mr-4" />
-                    <span className="font-bold text-accent-blue text-lg">{item.year}</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="h-px bg-sky-glow/30 mb-2" />
-                    <p className="text-cool-grey">{item.event}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>

@@ -48,17 +48,15 @@ const products = [
 
 const FILTERS = [
   { label: 'All Products', value: 'all' },
-  { label: 'Tobacco-Free', value: 'tobacco' },
   { label: 'Mint & Menthol', value: 'mint' },
   { label: 'Fruit Flavors', value: 'fruit' },
   { label: 'Specialty Blends', value: 'specialty' },
 ];
 
 const CATEGORY_MAP = {
-  tobacco: (product) => product.name === 'Pure Tobacco',
   mint: (product) => product.name === 'Classic Mint' || product.name === 'Arctic Freeze',
   fruit: (product) => product.name === 'Citrus Burst' || product.name === 'Berry Mix',
-  specialty: (product) => product.name === 'Coffee Blend',
+  specialty: (product) => product.name === 'Coffee Blend' || product.name === 'Pure Tobacco',
 };
 
 const ProductPortfolio = ({ onContactClick }: { onContactClick: () => void }) => {

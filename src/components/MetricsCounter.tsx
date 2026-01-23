@@ -6,9 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const metrics = [
-  { label: 'Years Experience', value: 15, suffix: '+' },
-  { label: 'Pouches/Month', value: 5, suffix: 'M' },
-  { label: 'Quality Control', value: 99, suffix: '%' },
+  { label: 'Cans/Month', value: 2, suffix: 'M' },
+  { label: 'Quality Control', value: 100, suffix: '%' },
   { label: 'Countries Served', value: 25, suffix: '+' }
 ];
 
@@ -51,16 +50,16 @@ const MetricsCounter = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-deep-navy" data-scroll-section>
+    <section className="py-10 bg-deep-navy" data-scroll-section>
       <div className="container-max">
-        <div ref={metricsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div ref={metricsRef} className="flex flex-wrap justify-center gap-12 md:gap-20 lg:gap-24">
           {metrics.map((metric, index) => (
-            <div key={metric.label} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+            <div key={metric.label} className="text-center px-4 md:px-6 lg:px-16">
+              <div className="text-5xl md:text-6xl  font-bold text-white mb-2">
                 <span className="counter-value">0</span>
                 <span className="text-sky-glow">{metric.suffix}</span>
               </div>
-              <p className="text-cool-grey">{metric.label}</p>
+              <p className="text-base md:text-lg text-cool-grey">{metric.label}</p>
             </div>
           ))}
         </div>

@@ -236,7 +236,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
               <div className="space-y-4 text-sm">
                 <div>
                   <h4 className="font-medium text-deep-navy">Headquarters</h4>
-                  <p className="text-cool-grey">Ramnagar<br />Uttarakhand, India</p>
+                  <p className="text-cool-grey">Uttarakhand, India</p>
                 </div>
                 <div>
                   <h4 className="font-medium text-deep-navy">Sales Team</h4>

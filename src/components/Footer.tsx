@@ -20,7 +20,7 @@ const Footer = ({ onContactClick }: { onContactClick: () => void }) => {
               <span className="font-bold text-2xl">Corbett Labs</span>
             </div>
             <p className="text-white/80 mb-6 max-w-md">
-              Leading OEM manufacturer of premium nicotine pouches with over 15 years of experience 
+              Leading OEM manufacturer of premium nicotine pouches with extensive experience 
               in delivering innovative solutions for global brands.
             </p>
             {/* Social media buttons removed as requested */}
@@ -61,7 +61,7 @@ const Footer = ({ onContactClick }: { onContactClick: () => void }) => {
           <div>
             <h3 className="font-bold text-lg mb-4">Get in Touch</h3>
             <div className="space-y-3 text-white/80">
-              <p>Ramnagar<br />Uttarakhand, India</p>
+              <p>Uttarakhand, India</p>
               <p>pouchex@corbettlabs.in</p>
               <button 
                 onClick={onContactClick}
@@ -77,7 +77,7 @@ const Footer = ({ onContactClick }: { onContactClick: () => void }) => {
         <div className="border-t border-white/20 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm">
-              © 2024 Corbett Labs. All rights reserved. Leading OEM Innovation Since 2009.
+              © 2026 Corbett Labs. All rights reserved. Leading OEM Innovations Globally.
             </div>
             {/* Footer links removed as requested */}
           </div>
