@@ -4,15 +4,23 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import emailjs from '@emailjs/browser';
+
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
 const ContactModal: React.FC<ContactModalProps> = ({
   isOpen,
   onClose
 }) => {
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRtX1CJ2pf3mvHe3psEK516Eb8hm0tT4mQFs_AUVLqmA_uw5Ba-3IaJv4dEVVsC_g5_Q/exec';
+  // EmailJS configuration - Update these with your EmailJS credentials
+  // Get these from https://www.emailjs.com/ after creating an account
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key';
+  const RECIPIENT_EMAIL = 'pouchex@corbettlabs.in';
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -79,27 +87,77 @@ const ContactModal: React.FC<ContactModalProps> = ({
         companyName: formData.companyName.trim(),
         projectDetails: (formData.projectDetails || '').trim()
       };
-      const fd = new FormData();
-      fd.set('fullName', trimmed.fullName);
-      fd.set('email', trimmed.email);
-      fd.set('companyName', trimmed.companyName);
-      fd.set('role', trimmed.role);
-      fd.set('productInterest', trimmed.productInterest);
-      fd.set('expectedVolume', trimmed.expectedVolume);
-      fd.set('projectDetails', trimmed.projectDetails);
+      // Format email content in a structured manner
+      const emailContent = `
+New Quote Request from Corbett Labs Website
 
-      const res = await fetch(SCRIPT_URL, { method: 'POST', body: fd });
-      let data: any = null;
-      try { data = await res.json(); } catch (err) { /* ignore parse errors */ }
-      if (res.ok && data && data.result === 'success') {
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTACT INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Full Name:        ${trimmed.fullName}
+Email Address:    ${trimmed.email}
+Company Name:     ${trimmed.companyName}
+Role:             ${trimmed.role || 'Not specified'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROJECT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Product Interest: ${trimmed.productInterest || 'Not specified'}
+Expected Volume:  ${trimmed.expectedVolume || 'Not specified'}
+
+Project Details:
+${trimmed.projectDetails || 'No additional details provided.'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Submitted: ${new Date().toLocaleString('en-US', { 
+  timeZone: 'Asia/Kolkata',
+  dateStyle: 'full',
+  timeStyle: 'long'
+})}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      `.trim();
+
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        to_email: RECIPIENT_EMAIL,
+        from_name: trimmed.fullName,
+        from_email: trimmed.email,
+        subject: `New Quote Request from ${trimmed.companyName} - Corbett Labs Website`,
+        message: emailContent,
+        full_name: trimmed.fullName,
+        email: trimmed.email,
+        company_name: trimmed.companyName,
+        role: trimmed.role || 'Not specified',
+        product_interest: trimmed.productInterest || 'Not specified',
+        expected_volume: trimmed.expectedVolume || 'Not specified',
+        project_details: trimmed.projectDetails || 'No additional details provided.',
+        submission_date: new Date().toLocaleString('en-US', { 
+          timeZone: 'Asia/Kolkata',
+          dateStyle: 'full',
+          timeStyle: 'long'
+        })
+      };
+
+      // Initialize EmailJS with public key
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
         setFormMessage({ type: 'success', text: 'Thanks! Your request was sent successfully. We’ll reach out shortly.' });
         // reset form
         setFormData({ fullName: '', email: '', companyName: '', role: '', productInterest: '', expectedVolume: '', projectDetails: '' });
         if (formRef.current) formRef.current.reset();
         setLoadTimestamp(Date.now());
-      } else {
-        throw new Error('Bad response');
-      }
     } catch (err) {
       setFormMessage({ type: 'error', text: 'We couldn’t send your request. Please try again later or email pouchex@corbettlabs.in.' });
     } finally {
