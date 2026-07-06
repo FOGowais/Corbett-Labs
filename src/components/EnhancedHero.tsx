@@ -30,6 +30,8 @@ const EnhancedHero = () => {
   const parallaxRefs = useRef([]);
 
   useEffect(() => {
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+
     const parallaxEls = parallaxRefs.current;
     let xValue = 0, yValue = 0, rotateDegree = 0;
 
@@ -113,7 +115,8 @@ const EnhancedHero = () => {
   }, []);
 
   return (
-    <main ref={mainRef} className="hero-main">
+    <>
+    <main ref={mainRef} className="hero-main hero-desktop">
       {/* Vignette and header are omitted for now */}
       {images.map((img, i) => (
         <img
@@ -139,7 +142,7 @@ const EnhancedHero = () => {
           textShadow: `0 2px 12px rgba(0,0,0,0.45), 0 0 24px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.35)`
         }}>Crafted by Experts</span></h2>
         <img
-          src="/lovable-uploads/hero_prod.png"
+          src="/lovable-uploads/hero_prod.webp"
           srcSet="/lovable-uploads/hero_prod.webp 1x"
           className="parallax hero-prod-img"
           data-speedx="0.05"
@@ -160,6 +163,15 @@ const EnhancedHero = () => {
         </h1>
       </div>
     </main>
+    <main className="hero-main hero-main-mobile hero-mobile">
+      <img
+        src="/lovable-uploads/hero_mobile_1x.webp"
+        srcSet="/lovable-uploads/hero_mobile_1x.webp 1x, /lovable-uploads/hero_mobile_2x.webp 2x, /lovable-uploads/hero_mobile_3x.webp 3x"
+        alt="Crafted by Experts, Branded by You"
+        className="hero-mobile-img"
+      />
+    </main>
+    </>
   );
 };
 

@@ -190,6 +190,12 @@ html.has-scroll-dragging {
   transition: none;
 }
 
+.hero-prod-img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+}
+
 .bg-img {
   position: absolute;
   width: 194.44%;
@@ -451,3 +457,28 @@ html.has-scroll-dragging {
   .text h2 { font-size: 2.6rem; }
 }
 /* --- End 3D Parallax Styles --- */
+
+/* Mobile-only hero: single static image, no parallax */
+.hero-mobile {
+  display: none;
+}
+
+.hero-mobile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 767px) {
+  .hero-desktop {
+    display: none !important;
+  }
+
+  .hero-mobile {
+    display: block;
+  }
+}
